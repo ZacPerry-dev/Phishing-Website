@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" type="text/css" href="css/style.css" />
+      <link rel="stylesheet" type="text/css" href="css/style.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/theme.css" />
+      <title>My Print Center</title>
+      <link rel="icon" type="image/ico" href="https://myprint.utk.edu/PharosAPI/client/images/favicon.ico?v=4" />
+      <style>
+         body {
+         background-color: #52514f;
+         }
+         .cssload-spin-box span {
+         margin-top: 40px;
+         display: block;
+         height: 100%;
+         font-size: 100%;
+         width: 100px;
+         position: absolute;
+         left: 50%;
+         transform: translateX(-50%) translateY(300%);
+         text-align: center;
+         font-size: 100%;
+         color: #ccc;
+         font-family: monospace;
+         }
+         .cssload-spin-box {
+         position: absolute;
+         margin: auto;
+         left: 0;
+         top: 0;
+         bottom: 0;
+         right: 0;
+         width: 15px;
+         height: 15px;
+         border-radius: 100%;
+         z-index: 99999999999999;
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         -o-box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf,
+         -15px -15px #ffc300, 15px -15px #dfdfdf;
+         -ms-box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf,
+         -15px -15px #ffc300, 15px -15px #dfdfdf;
+         -webkit-box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf,
+         -15px -15px #ffc300, 15px -15px #dfdfdf;
+         -moz-box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf,
+         -15px -15px #ffc300, 15px -15px #dfdfdf;
+         animation: cssload-spin ease infinite 5.8s;
+         -o-animation: cssload-spin ease infinite 5.8s;
+         -ms-animation: cssload-spin ease infinite 5.8s;
+         -webkit-animation: cssload-spin ease infinite 5.8s;
+         -moz-animation: cssload-spin ease infinite 5.8s;
+         }
+         @keyframes cssload-spin {
+         0%,
+         100% {
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         }
+         25% {
+         box-shadow: -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf, 15px 15px #ffc300;
+         }
+         50% {
+         box-shadow: -15px -15px #ffc300, 15px -15px #dfdfdf, 15px 15px #ffc300,
+         -15px 15px #dfdfdf;
+         }
+         75% {
+         box-shadow: 15px -15px #ffc300, 15px 15px #947003, -15px 15px #ffc300,
+         -15px -15px #947003;
+         }
+         }
+         @-o-keyframes cssload-spin {
+         0%,
+         100% {
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         }
+         25% {
+         box-shadow: -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf, 15px 15px #ffc300;
+         }
+         50% {
+         box-shadow: -15px -15px #ffc300, 15px -15px #dfdfdf, 15px 15px #ffc300,
+         -15px 15px #dfdfdf;
+         }
+         75% {
+         box-shadow: 15px -15px #ffc300, 15px 15px #947003, -15px 15px #ffc300,
+         -15px -15px #947003;
+         }
+         }
+         @-ms-keyframes cssload-spin {
+         0%,
+         100% {
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         }
+         25% {
+         box-shadow: -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf, 15px 15px #ffc300;
+         }
+         50% {
+         box-shadow: -15px -15px #ffc300, 15px -15px #dfdfdf, 15px 15px #ffc300,
+         -15px 15px #dfdfdf;
+         }
+         75% {
+         box-shadow: 15px -15px #ffc300, 15px 15px #947003, -15px 15px #ffc300,
+         -15px -15px #a67e07;
+         }
+         }
+         @-webkit-keyframes cssload-spin {
+         0%,
+         100% {
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         }
+         25% {
+         box-shadow: -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf, 15px 15px #ffc300;
+         }
+         50% {
+         box-shadow: -15px -15px #ffc300, 15px -15px #dfdfdf, 15px 15px #ffc300,
+         -15px 15px #dfdfdf;
+         }
+         75% {
+         box-shadow: 15px -15px #ffc300, 15px 15px #947003, -15px 15px #ffc300,
+         -15px -15px #947003;
+         }
+         }
+         @-moz-keyframes cssload-spin {
+         0%,
+         100% {
+         box-shadow: 15px 15px #ffc300, -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf;
+         }
+         25% {
+         box-shadow: -15px 15px #dfdfdf, -15px -15px #ffc300,
+         15px -15px #dfdfdf, 15px 15px #ffc300;
+         }
+         50% {
+         box-shadow: -15px -15px #ffc300, 15px -15px #dfdfdf, 15px 15px #ffc300,
+         -15px 15px #dfdfdf;
+         }
+         75% {
+         box-shadow: 15px -15px #ffc300, 15px 15px #947003, -15px 15px #ffc300,
+         -15px -15px #947003;
+         }
+         }
+      </style>
+      <link href="css/style.min.css" type="text/css" rel="stylesheet" />
+   </head>
+   <body id="pharosppc" style="style.css" data-new-gr-c-s-check-loaded="14.1107.0" data-gr-ext-installed="">
+      <div class="cssload-spin-box" data-ppc-hidden="" style="display: none;"></div>
+      <div id="global-error-container">
+         <noscript>
+            <div class="global-error" id="global-error-js"><span class="global-error-inner">Warning: Your browser appears to
+               have blocked scripting. This likely means that your browser has Javascript disabled or your browsers security
+               mode is enabled.</span>
+            </div>
+         </noscript>
+         <div class="global-error" id="global-error-theme"><span class="global-error-inner">A problem occurred while
+            attempting to connect to the print center, please contact your administrator.<br><br><button
+               onclick="window.location.reload()">Try again</button></span>
+         </div>
+         <div class="global-error global-error-default-off" id="global-error-cookies"><span
+            class="global-error-inner">Cookies appear to be disabled, this will prevent Print Center from functioning
+            correctly, please enable cookies and refresh your browser.</span>
+         </div>
+         <div class="global-error global-error-default-off" id="global-error-browser"><span class="global-error-inner">Print
+            Center is not actively tested in older browsers, some features may not function as expected. Please update your
+            browser or use an alternative browser.<br><br><button>Continue Anyway</button></span>
+         </div>
+         <div class="global-error global-error-default-off" id="global-error-apimismatch"><span
+            class="global-error-inner">Version mismatch detected. This is possibly due to a recent system update, try
+            refreshing your browser using CTRL+F5 or clear the browser cache.<br><br>Your Pharos Print Center version <span
+               id="message-ppc-version"></span> does not match your Pharos API version <span
+               id="message-papi-version"></span>. An update to the Print Center Web component may be required. You may
+            continue but there may be unintended side effects or missing features.<br><br><button>Continue
+            Anyway</button></span>
+         </div>
+      </div>
+      <div id="panel-container" style="visibility: visible;">
+         <div id="scroll-container">
+            <div class="ppc-foot">
+               <div class="ppc-foot-left"><span>© Copyright 2023 - Powered by Pharos®</span></div>
+               <div class="ppc-foot-center"><span class="ppc-foot-links links-container"><span><a class="common-link"
+                  target="_blank" href="http://www.utk.edu" style="color:#52514f !important;">UTK
+                  Homepage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="common-link" target="_blank"
+                     href="https://oit.utk.edu/labs/printing/mobile" style="color:#52514f !important;">OIT Mobile Print
+                  Instructions</a></span></span>
+               </div>
+            </div>
+            <div class="ppc-head">
+               <div class="ppc-head-left">
+                  <div class="headLogo customizable-logo ppc-head-logo">&nbsp;</div>
+               </div>
+               <div class="ppc-head-center"><span class="ppc-head-links links-container"></span></div>
+               <div class="ppc-head-right">
+                  <span
+                     class="ppc-head-text ppc-head-additional-links links-container"><span>&nbsp;</span></span> <span
+                     class="ppc-head-text ppc-head-loginonly"><span class="phsIcon connectionOff" id="realtime-connection-status"
+                     title="Live update connection has been lost, click here to reconnect" data-ppc-visible="">&nbsp;</span>
+                  </span><a class="ppc-head-text ppc-head-help ph-focus" href="https://oit.utk.edu/labs/printing/"
+                     target="_blank"><span class="ppc-head-icon disableable-image"><i class="icon-question3"></i> </span><span
+                     class="help-link disableable-text" aria-label="Press Enter for help.">Help</span></a>
+                  <div class="ppc-head-text ppc-head-loginonly">
+                     <div class="ppc-head-displayname" tabindex="-1">
+                        <span id="ppc-head-displaytext"
+                           class="animated fadeIn"></span> <span class="arrow darkgray">&nbsp;</span>
+                        <div class="ppc-head-dropdown">
+                           <div class="ppc-head-dropdown-border"></div>
+                           <div class="ppc-head-dropdown-item ph-focus" id="ppc-head-logout" tabindex="0"
+                              aria-label="Logout. Press enter to log out of PPC"><span class="ppc-head-icon disableable-image"><i
+                              class="icon-switch"></i> </span><span class="disableable-text">Log out</span></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+            <div class="panel" id="login" data-ppc-visible="" style="display: block;">
+               <div id="login-container" tabindex="0" data-ppc-visible="" style="display: block;">
+                  <div class="login-center">
+                     <div class="login-center-frame">
+                        <div class="login-box-container">
+                           <div class="login-box">
+                              <div class="login-head"><span>Secure Login</span></div>
+                              <div class="login-body">
+                                 <div class="site-logo-center">
+                                    <div class="logonLogo customizable-logo siteLogo">&nbsp;</div>
+                                 </div>
+                                 <div class="sso_panel common-link" data-ppc-hidden="" style="display: none;"><button
+                                    id="hybrid-login-button" class="button-primary">Login with CAS</button></div>
+                                 <div class="sso_wait_message">
+                                    <p>Checking your login, please wait...</p>
+                                 </div>
+                                 <form id="form-login" method="post" data-ppc-visible="">
+                                    <div class="idcardmessage">Please swipe your card to log on</div>
+                                    <label class="user-input-label" for="input-login-username">NetID</label>
+                                    <input type="text" id="input-login-username" name="input-login-username"
+                                       class="k-widget k-textbox login-text-input" autocomplete="off"
+                                       aria-label="Please type your username.">
+                                    <label class="user-input-label" for="input-login-password">Password</label>
+                                    <input type="password" id="input-login-password" name="input-login-password"
+                                       class="k-widget k-textbox login-text-input" autocomplete="off"
+                                       aria-label="Please input your password."><br>
+                                    <input type="checkbox" id="input-login-rememberme" name="input-login-rememberme"
+                                       aria-label="Click or press enter to stay logged in." autocomplete="off" data-ppc-hidden=""
+                                       style="display: none;">
+                                    <label for="input-login-rememberme" class="remember-me-label" data-ppc-hidden=""
+                                       style="display: none;">Keep me logged
+                                    in</label><br>
+                                    <button type="submit" class="button-primary">
+                                    Log in
+                                    </button><br>
+                                    <button type="button" style="clear: both; display: none;" id="pin-management-button"
+                                       class="button-secondary" data-ppc-hidden="">PIN Management</button>
+                                    <a class="common-link bold" id="guest-registration-link" href="javascript:void(0);"
+                                       data-ppc-hidden="" style="display: none;">I am a guest</a>
+                                 </form>
+                                 <div id="text-login-error"></div>
+                                 <br>
+                                 <div class="clearfix"></div>
+                              </div>
+                              <div class="version-holder">Version 4.8.4.38</div>
+                           </div>
+                           <div class="logonmessage" data-ppc-hidden="" style="display: none;"></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="guest-registration-container" data-ppc-hidden="" style="display: none;">
+                  <div class="login-center">
+                     <div class="login-center-frame">
+                        <div class="login-box-container">
+                           <div class="login-box">
+                              <div class="login-head"><span>Guest Users &gt; New User</span></div>
+                              <div class="login-body">
+                                 <div class="site-logo-center">
+                                    <div class="registerLogo customizable-logo">&nbsp;</div>
+                                 </div>
+                                 <form id="form-register" method="post">
+                                    <div class="clearfix-after">
+                                       <div class="form-part"><label class="user-input-label" for="input-register-firstname"
+                                          aria-label="Optional: Please type your first name.">First Name</label><input type="text"
+                                          id="input-register-firstname" name="input-register-firstname"
+                                          class="k-widget k-textbox login-text-input" placeholder=""><br><label
+                                          class="user-input-label" for="input-register-lastname"
+                                          aria-label="Optional: Please type your last name.">Last Name</label><input type="text"
+                                          id="input-register-lastname" name="input-register-lastname"
+                                          class="k-widget k-textbox login-text-input" placeholder=""><br><label
+                                          class="user-input-label required-star" id="register-email-label" for="input-register-email"
+                                          aria-label="Required: Please enter your email.">Email Address</label><input type="text"
+                                          id="input-register-email" name="input-register-email"
+                                          class="k-widget k-textbox login-text-input" placeholder=""><br><label
+                                          class="user-input-label required-star" id="register-email-label-repeat"
+                                          for="input-register-email-repeat"
+                                          aria-label="Confirmation. Please enter your email.">Confirm Email Address</label><input
+                                          type="text" id="input-register-email-repeat" name="input-register-email-repeat"
+                                          class="k-widget k-textbox login-text-input" placeholder=""> <span
+                                          class="register-user-hint user-input-hint">Note your email address will be used for
+                                          login</span><br><label class="user-input-label required-star" id="register-password-label"
+                                             for="input-register-password">Password</label><input type="password"
+                                             id="input-register-password" name="input-register-password"
+                                             class="k-widget k-textbox login-text-input" placeholder="" autocomplete="off"><br><label
+                                             class="user-input-label required-star" id="register-password-label-repeat"
+                                             for="input-register-password-repeat">Confirm Password</label><input type="password"
+                                             id="input-register-password-repeat" name="input-register-password-repeat"
+                                             class="k-widget k-textbox login-text-input" placeholder="" autocomplete="off">
+                                       </div>
+                                       <div class="form-part">
+                                          <div class="clearfix-after">
+                                             <input type="hidden" id="input-captcha-id" name="input-captcha-id"
+                                                class="k-widget k-textbox login-text-input">
+                                             <div class="captcha-container">
+                                                <img alt="captcha">
+                                                <div class="phsIcon captchaRefresh" id="captcha-refresh"></div>
+                                                <div id="captcha-loading">Captcha loading...</div>
+                                             </div>
+                                          </div>
+                                          <label class="user-input-label required-star" id="user-input-label-captcha"
+                                             for="input-captcha-answer">Enter the text above</label><input type="text"
+                                             id="input-captcha-answer" name="input-captcha-answer" autocomplete="off"
+                                             class="k-widget k-textbox login-text-input" placeholder="">
+                                          <div id="captcha-message" class="user-input-hint">Characters are case sensitive</div>
+                                          <br>
+                                          <div class="captcha-row required-text">
+                                             <div class="captcha-col-all right-align">* Indicates a required field.</div>
+                                          </div>
+                                          <div id="text-register-error"></div>
+                                       </div>
+                                    </div>
+                                    <div class="clearfix-after"><button type="submit" class="button-primary"
+                                       id="input-guest-registration-create">Create</button> <button type="button"
+                                       class="button-secondary" id="input-guest-registration-cancel">Cancel</button></div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="login-readcard-container" tabindex="0" aria-label="Please swipe your card to continue."
+                  data-ppc-hidden="" style="display: none;">
+                  <div class="login-center">
+                     <div class="login-center-frame">
+                        <div class="login-box-container">
+                           <div class="idcardmessage">
+                              Please swipe your card to continue
+                              <div class="error"></div>
+                           </div>
+                           <div class="btnCancel">Cancel</div>
+                           <form id="form-swipecard" method="post">
+                              <input type="text" id="input-login-cardid"
+                                 name="input-login-cardid" autocomplete="off"> <button type="submit" class="button-primary"></button>
+                              <div class="clearfix"></div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="panel" id="main" data-ppc-hidden="" style="display: none;">
+               <div id="main-nav"></div>
+               <div id="main-content" style="top: 0px;">
+                  <div id="main-headbar"></div>
+                  <div class="main-content-message">No tab selected...</div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="ppc-screensaver"></div>
+      <link href="css/theme.css" type="text/css" rel="stylesheet">
+      <div>
+         <div id="viewuserlist-vue-root"></div>
+      </div>
+   </body>
+   <div class="cssload-spin-box" data-ppc-hidden="" style="display: none;"></div>
+   <div id="global-error-container">
+      <noscript>
+         <div class="global-error" id="global-error-js"><span class="global-error-inner">Warning: Your browser appears to
+            have blocked scripting. This likely means that your browser has Javascript disabled or your browsers security
+            mode is enabled.</span>
+         </div>
+      </noscript>
+      <div class="global-error" id="global-error-theme"><span class="global-error-inner">A problem occurred while attempting
+         to connect to the print center, please contact your administrator.<br><br><button
+            onclick="window.location.reload()">Try again</button></span>
+      </div>
+      <div class="global-error global-error-default-off" id="global-error-cookies"><span class="global-error-inner">Cookies
+         appear to be disabled, this will prevent Print Center from functioning correctly, please enable cookies and
+         refresh your browser.</span>
+      </div>
+      <div class="global-error global-error-default-off" id="global-error-browser"><span class="global-error-inner">Print
+         Center is not actively tested in older browsers, some features may not function as expected. Please update your
+         browser or use an alternative browser.<br><br><button>Continue Anyway</button></span>
+      </div>
+      <div class="global-error global-error-default-off" id="global-error-apimismatch"><span
+         class="global-error-inner">Version mismatch detected. This is possibly due to a recent system update, try
+         refreshing your browser using CTRL+F5 or clear the browser cache.<br><br>Your Pharos Print Center version <span
+            id="message-ppc-version"></span> does not match your Pharos API version <span id="message-papi-version"></span>.
+         An update to the Print Center Web component may be required. You may continue but there may be unintended side
+         effects or missing features.<br><br><button>Continue Anyway</button></span>
+      </div>
+   </div>
+   <div id="panel-container" style="visibility: visible;">
+      <div id="scroll-container">
+         <div class="ppc-foot">
+            <div class="ppc-foot-left"><span>© Copyright 2023 - Powered by Pharos®</span></div>
+            <div class="ppc-foot-center"><span class="ppc-foot-links links-container"><span><a class="common-link"
+               target="_blank" href="http://www.utk.edu" style="color:#52514f !important;">UTK
+               Homepage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a class="common-link" target="_blank"
+                  href="https://oit.utk.edu/labs/printing/mobile" style="color:#52514f !important;">OIT Mobile Print
+               Instructions</a></span></span>
+            </div>
+         </div>
+         <div class="ppc-head">
+            <div class="ppc-head-left">
+               <div class="headLogo customizable-logo ppc-head-logo">&nbsp;</div>
+            </div>
+            <div class="ppc-head-center"><span class="ppc-head-links links-container"></span></div>
+            <div class="ppc-head-right">
+               <span
+                  class="ppc-head-text ppc-head-additional-links links-container"><span>&nbsp;</span></span> <span
+                  class="ppc-head-text ppc-head-loginonly"><span class="phsIcon connectionOff" id="realtime-connection-status"
+                  title="Live update connection has been lost, click here to reconnect" data-ppc-visible="">&nbsp;</span>
+               </span><a class="ppc-head-text ppc-head-help ph-focus" href="https://oit.utk.edu/labs/printing/"
+                  target="_blank"><span class="ppc-head-icon disableable-image"><i class="icon-question3"></i> </span><span
+                  class="help-link disableable-text" aria-label="Press Enter for help.">Help</span></a>
+               <div class="ppc-head-text ppc-head-loginonly">
+                  <div class="ppc-head-displayname" tabindex="-1">
+                     <span id="ppc-head-displaytext"
+                        class="animated fadeIn"></span> <span class="arrow darkgray">&nbsp;</span>
+                     <div class="ppc-head-dropdown">
+                        <div class="ppc-head-dropdown-border"></div>
+                        <div class="ppc-head-dropdown-item ph-focus" id="ppc-head-logout" tabindex="0"
+                           aria-label="Logout. Press enter to log out of PPC"><span class="ppc-head-icon disableable-image"><i
+                           class="icon-switch"></i> </span><span class="disableable-text">Log out</span></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+         <div class="panel" id="login" data-ppc-visible="" style="display: block;">
+            <div id="login-container" tabindex="0" data-ppc-visible="" style="display: block;">
+               <div class="login-center">
+                  <div class="login-center-frame">
+                     <div class="login-box-container">
+                        <div class="login-box">
+                           <div class="login-head"><span>Secure Login</span></div>
+                           <div class="login-body">
+                              <div class="site-logo-center">
+                                 <div class="logonLogo customizable-logo siteLogo">&nbsp;</div>
+                              </div>
+                              <div class="sso_panel common-link" data-ppc-hidden="" style="display: none;"><button
+                                 id="hybrid-login-button" class="button-primary">Login with CAS</button></div>
+                              <div class="sso_wait_message">
+                                 <p>Checking your login, please wait...</p>
+                              </div>
+                              <form id="form-login" method="post" data-ppc-visible="">
+                                 <div class="idcardmessage">Please swipe your card to log on</div>
+                                 <label class="user-input-label" for="input-login-username">NetID</label>
+                                 <input type="text" id="input-login-username" name="input-login-username"
+                                    class="k-widget k-textbox login-text-input" autocomplete="off"
+                                    aria-label="Please type your username.">
+                                 <label class="user-input-label" for="input-login-password">Password</label>
+                                 <input type="password" id="input-login-password" name="input-login-password"
+                                    class="k-widget k-textbox login-text-input" autocomplete="off"
+                                    aria-label="Please input your password.">
+                                 <br>
+                                 <input type="checkbox" id="input-login-rememberme" name="input-login-rememberme"
+                                    aria-label="Click or press enter to stay logged in." autocomplete="off" data-ppc-hidden=""
+                                    style="display: none;">
+                                 <label for="input-login-rememberme" class="remember-me-label" data-ppc-hidden=""
+                                    style="display: none;">Keep me logged
+                                 in</label><br>
+                                 <button type="submit" class="button-primary">Log in</button>
+                                 <br><button type="button" style="clear: both; display: none;" id="pin-management-button"
+                                    class="button-secondary" data-ppc-hidden="">PIN Management</button> <a class="common-link bold"
+                                    id="guest-registration-link" href="javascript:void(0);" data-ppc-hidden=""
+                                    style="display: none;">I am a guest</a>
+                              </form>
+                              <div id="text-login-error"></div>
+                              <br>
+                              <div class="clearfix"></div>
+                           </div>
+                           <div class="version-holder">Version 4.8.4.38</div>
+                        </div>
+                        <div class="logonmessage" data-ppc-hidden="" style="display: none;"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="guest-registration-container" data-ppc-hidden="" style="display: none;">
+               <div class="login-center">
+                  <div class="login-center-frame">
+                     <div class="login-box-container">
+                        <div class="login-box">
+                           <div class="login-head"><span>Guest Users &gt; New User</span></div>
+                           <div class="login-body">
+                              <div class="site-logo-center">
+                                 <div class="registerLogo customizable-logo">&nbsp;</div>
+                              </div>
+                              <form id="form-register" method="post">
+                                 <div class="clearfix-after">
+                                    <div class="form-part"><label class="user-input-label" for="input-register-firstname"
+                                       aria-label="Optional: Please type your first name.">First Name</label><input type="text"
+                                       id="input-register-firstname" name="input-register-firstname"
+                                       class="k-widget k-textbox login-text-input" placeholder=""><br><label class="user-input-label"
+                                       for="input-register-lastname" aria-label="Optional: Please type your last name.">Last
+                                       Name</label><input type="text" id="input-register-lastname" name="input-register-lastname"
+                                          class="k-widget k-textbox login-text-input" placeholder=""><br><label
+                                          class="user-input-label required-star" id="register-email-label" for="input-register-email"
+                                          aria-label="Required: Please enter your email.">Email Address</label><input type="text"
+                                          id="input-register-email" name="input-register-email"
+                                          class="k-widget k-textbox login-text-input" placeholder=""><br><label
+                                          class="user-input-label required-star" id="register-email-label-repeat"
+                                          for="input-register-email-repeat" aria-label="Confirmation. Please enter your email.">Confirm
+                                       Email Address</label><input type="text" id="input-register-email-repeat"
+                                          name="input-register-email-repeat" class="k-widget k-textbox login-text-input" placeholder="">
+                                       <span class="register-user-hint user-input-hint">Note your email address will be used for
+                                       login</span><br><label class="user-input-label required-star" id="register-password-label"
+                                          for="input-register-password">Password</label><input type="password"
+                                          id="input-register-password" name="input-register-password"
+                                          class="k-widget k-textbox login-text-input" placeholder="" autocomplete="off"><br><label
+                                          class="user-input-label required-star" id="register-password-label-repeat"
+                                          for="input-register-password-repeat">Confirm Password</label><input type="password"
+                                          id="input-register-password-repeat" name="input-register-password-repeat"
+                                          class="k-widget k-textbox login-text-input" placeholder="" autocomplete="off">
+                                    </div>
+                                    <div class="form-part">
+                                       <div class="clearfix-after">
+                                          <input type="hidden" id="input-captcha-id" name="input-captcha-id"
+                                             class="k-widget k-textbox login-text-input">
+                                          <div class="captcha-container">
+                                             <img alt="captcha">
+                                             <div class="phsIcon captchaRefresh" id="captcha-refresh"></div>
+                                             <div id="captcha-loading">Captcha loading...</div>
+                                          </div>
+                                       </div>
+                                       <label class="user-input-label required-star" id="user-input-label-captcha"
+                                          for="input-captcha-answer">Enter the text above</label><input type="text"
+                                          id="input-captcha-answer" name="input-captcha-answer" autocomplete="off"
+                                          class="k-widget k-textbox login-text-input" placeholder="">
+                                       <div id="captcha-message" class="user-input-hint">Characters are case sensitive</div>
+                                       <br>
+                                       <div class="captcha-row required-text">
+                                          <div class="captcha-col-all right-align">* Indicates a required field.</div>
+                                       </div>
+                                       <div id="text-register-error"></div>
+                                    </div>
+                                 </div>
+                                 <div class="clearfix-after"><button type="submit" class="button-primary"
+                                    id="input-guest-registration-create">Create</button> <button type="button"
+                                    class="button-secondary" id="input-guest-registration-cancel">Cancel</button></div>
+                              </form>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="login-readcard-container" tabindex="0" aria-label="Please swipe your card to continue."
+               data-ppc-hidden="" style="display: none;">
+               <div class="login-center">
+                  <div class="login-center-frame">
+                     <div class="login-box-container">
+                        <div class="idcardmessage">
+                           Please swipe your card to continue
+                           <div class="error"></div>
+                        </div>
+                        <div class="btnCancel">Cancel</div>
+                        <form id="form-swipecard" method="post">
+                           <input type="text" id="input-login-cardid"
+                              name="input-login-cardid" autocomplete="off"> <button type="submit" class="button-primary"></button>
+                           <div class="clearfix"></div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="panel" id="main" data-ppc-hidden="" style="display: none;">
+            <div id="main-nav"></div>
+            <div id="main-content" style="top: 0px;">
+               <div id="main-headbar"></div>
+               <div class="main-content-message">No tab selected...</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <link href="css/theme.css" type="text/css" rel="stylesheet">
+   </body>
+</html>
